@@ -13,5 +13,5 @@ void main() {
     blockColor.rgb *= tintColor;
 
     GCOLOR_OUT = blockColor;
-    gl_FragData[1] = vec4(normal, 1.0f);
+    GNORMAL_OUT = vec4(normal, 1.0f);
 }
