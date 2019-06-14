@@ -3,15 +3,15 @@
 #include "/lib/framebuffer.glsl"
 
 varying vec3 tintColor;
-varying vec4 texcoord;
 varying vec3 normal;
+varying vec4 texcoord;
 
 uniform sampler2D texture;
 
 void main() {
-    vec4 blockColor = texture2D(texture, texcoord.st);
-    blockColor.rgb *= tintColor;
+    vec4 handColor = texture2D(texture, texcoord.st);
+    handColor.rgb *= tintColor;
 
-    GCOLOR_OUT = blockColor;
+    GCOLOR_OUT = handColor;
     GNORMAL_OUT = vec4(normal * 0.5 + 0.5, 1.0);
 }

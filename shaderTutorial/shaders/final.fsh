@@ -25,12 +25,20 @@ vec3 convertToHDR(in vec3 color) {
     return HDRImage;
 }
 
+vec3 getExposure( in vec3 color ) {
+    vec3 retColor;
+    color *= 1.115;
+    retColor = pow(color, vec3(1/2.2));
+
+    return retColor;
+}
+
 void main() {
     vec3 color = texture2D(gcolor, texcoord.st).rgb;
 
     color = convertToHDR(color);
 
-    // vignette(color);
+    // color = getExposure(color);
 
     gl_FragColor = vec4(color.rgb, 1.0f);
 }
